@@ -6,7 +6,7 @@ setup(
     packages=[''],
     url='',
     license='MIT',
-    author='yassin',
+    author='Yassin Taskin',
     author_email='taskin@collide.info',
     description='Webservice offering the functionality of the esa_ttn library'
 )
