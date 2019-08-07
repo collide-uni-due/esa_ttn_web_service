@@ -72,7 +72,7 @@ edge in the network. At this point no score threshold is applied yet. If
 the network is empty or very sparce you can look into this list and 
 adjust your score threshold accordlingly.
 
-THe field *network* is the generated network for the input text. It is in the format
+The field *network* is the generated network for the input text. It is in the format
 of node-link data as used by [D3JS](https://www.d3-graph-gallery.com/network):
 
 ```json
