@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 default_params = {
     "text": "Text to be turned into a network",
-    "lang": "en",
+    "lang": "english",
     "score_shreshold": 5000,
     "connecting_concepts": False,
     "map_tokens_to": "articles",
@@ -24,7 +24,6 @@ def get_network():
     r_json = request.get_json(force=True)
     params = {**default_params, **r_json}
     text = params["text"]
-    lang = params["lang"]
     score_threshold = params["score_shreshold"]
     window_size = params["window_size"]
     connecting_concepts = params["connecting_concepts"]
@@ -55,7 +54,8 @@ def get_network():
 
 
 if __name__ == '__main__':
-    esa_db_path = pl.Path(sys.argv[1])
+    esa_db_path = pl.Path(sys.argv[1]).expanduser()
+    lang = sys.argv[2]
     esa_db = esa_ttn.ESA_DB(str(esa_db_path))
 
     app.run()
