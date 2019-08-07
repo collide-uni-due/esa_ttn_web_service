@@ -62,8 +62,8 @@ The service returns a json object of the form:
 
 ```json
 {
-  text_possible_edge_list": [["token_a", "token_b", "connecting_concept", 6547]],
-  "network": network_representation
+  "text_possible_edge_list": [["token_a", "token_b", "connecting_concept", 6547]],
+  "network": {...}
 }
 ```
 
