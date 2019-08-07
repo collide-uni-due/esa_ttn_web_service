@@ -63,7 +63,7 @@ The service returns a json object of the form:
 ```json
 {
   "text_possible_edge_list": [["token_a", "token_b", "connecting_concept", 6547]],
-  "network": {...}
+  "network": {}
 }
 ```
 
@@ -72,7 +72,7 @@ edge in the network. At this point no score threshold is applied yet. If
 the network is empty or very sparce you can look into this list and 
 adjust your score threshold accordlingly.
 
-The field *network* is the generated network for the input text. It is in the format
+The field **network** is the generated network for the input text. It is in the format
 of node-link data as used by [D3JS](https://www.d3-graph-gallery.com/network):
 
 ```json
