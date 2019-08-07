@@ -57,3 +57,32 @@ Possible values are "eigenvector", "betweenness", "degree", "core". The first th
 centrality meeasures. The last one is the highest k-core a node is part of.
 - **filter_threshold**: Value of the measure chosen in *filter_type*. Any node that has a value
 below this threshold is deleted from the network.
+
+The service returns a json object of the form:
+
+```json
+{
+  text_possible_edge_list": [["token_a", "token_b", "connecting_concept", 6547]],
+  "network": network_representation
+}
+```
+
+The field **text_possible_edge_list** containts a list of rows each describing a possible
+edge in the network. At this point no score threshold is applied yet. If
+the network is empty or very sparce you can look into this list and 
+adjust your score threshold accordlingly.
+
+THe field *network* is the generated network for the input text. It is in the format
+of node-link data as used by [D3JS](https://www.d3-graph-gallery.com/network):
+
+```json
+{ "nodes": [
+  { "id": 1, "name": "A" },
+  { "id": 2, "name": "B" }
+],
+"links": [
+  { "source": 1, "target": 2 }
+]}
+```
+
+With extra node/edge attributes added as key/value pairs to the nodes/links obects.
