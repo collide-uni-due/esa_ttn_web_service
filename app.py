@@ -7,7 +7,7 @@ from networkx.readwrite.json_graph import node_link_data
 app = Flask(__name__)
 
 default_params = {
-    "text": "Text to be turned into a network",
+    "text": "Cookie is more delicious than cake. Ice cream is the best. Muffin even better",
     "lang": "english",
     "score_shreshold": 5000,
     "connecting_concepts": False,
@@ -18,9 +18,11 @@ default_params = {
     "filter_threshold": 2,
 }
 
+lang = None
 
 @app.route('/get_network/')
 def get_network():
+    print("Im in here")
     r_json = request.get_json(force=True)
     params = {**default_params, **r_json}
     text = params["text"]
@@ -34,7 +36,7 @@ def get_network():
     if connecting_concepts:
         mode = "connecting_concepts"
     else:
-        mode = "direction_connection"
+        mode = "direct_connection"
 
     text_tokens = esa_ttn.text_to_tokens(text, lang)
     edge_df = esa_ttn.text_to_network_table(text_tokens, esa_db, window_size=window_size, map_tokens_to=map_tokens_to)
