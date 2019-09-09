@@ -4,6 +4,9 @@ from flask import Flask, request, jsonify
 import esa_ttn
 from networkx.readwrite.json_graph import node_link_data
 
+esa_db_path = None
+lang = None
+
 app = Flask(__name__)
 
 default_params = {
@@ -22,6 +25,7 @@ lang = None
 
 @app.route('/get_network/')
 def get_network():
+    esa_db = esa_ttn.ESA_DB(str(esa_db_path))
     print("Im in here")
     r_json = request.get_json(force=True)
     params = {**default_params, **r_json}
@@ -51,6 +55,7 @@ def get_network():
         "text_possible_edge_list": edge_df_list,
         "network": network_json_data,
     }
+    esa_db.close_connection()
 
     return jsonify(result)
 
