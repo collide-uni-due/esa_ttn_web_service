@@ -29,7 +29,7 @@ The endpoint expects a json object of the following structure,
     "window_size": 20,
     "filter_network": false,
     "filter_type": "core",
-    "filter_threshold": 2,
+    "filter_threshold": 2
 }
 ```
 
@@ -81,8 +81,14 @@ of node-link data as used by [D3JS](https://www.d3-graph-gallery.com/network):
   { "id": 2, "name": "B" }
 ],
 "links": [
-  { "source": 1, "target": 2 }
+  { "source": 1, "target": 2}
 ]}
 ```
 
 With extra node/edge attributes added as key/value pairs to the nodes/links obects.
+The ESA Network specifically has weight properties for the edges depending on how
+often a link was found in the text. If the parameter *connecting_concepts*
+is set to *false* there are only direct connection between concepts found the
+text. In this case the edges between text concepts have a property called
+*connecting_concepts* which is a string containing all connecting concepts
+separated by a space. 

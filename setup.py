@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='esa_ttn_web_service',
-    version='0.2',
+    version='0.2.1',
     packages=[''],
     url='',
     license='MIT',
