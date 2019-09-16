@@ -8,7 +8,7 @@ To start the web service simply execute the app.py file
 with the location of your ESA database as the first parameter and the language
 of the ESA db as a second parameter
 ```
-python app.py ~/path/to/esa.db
+python app.py ~/path/to/esa.db english
 ```
 
 The service will then be available on the port 5000 under '/get_network/'
